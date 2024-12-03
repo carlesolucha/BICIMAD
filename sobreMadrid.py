@@ -7,7 +7,7 @@ import datetime  # Importa el módulo datetime para obtener la fecha actual
 # Función para cargar y procesar el archivo CSV
 def cargar_actividades():
     try:
-        df = pd.read_csv("DATA/actividades.csv", encoding="ISO-8859-1", delimiter=";")
+        df = pd.read_csv("./data/actividades.csv", encoding="ISO-8859-1", delimiter=";")
         df["FECHA"] = pd.to_datetime(df["FECHA"], dayfirst=True, errors='coerce')
         df["HORA"] = df["HORA"].apply(lambda x: x.split(":")[0] + ":" + x.split(":")[1])
         return df
