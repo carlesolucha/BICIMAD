@@ -1,0 +1,12 @@
+dash
+gunicorn
+dash-bootstrap-components
+pandas 
+plotly 
+openpyxl
+pyarrow  
+requests
+joblib
+scikit-learn
+xgboost
+lightgbm
