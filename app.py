@@ -34,7 +34,6 @@ API_KEY = "e1191302c816272e38702d9bfe574df3"
 
 # Inicializa la aplicación Dash
 app = Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], suppress_callback_exceptions=True)
-
 ###########################################################################################################
 # Cargar datos al inicio
 data_path = './data'
@@ -659,7 +658,9 @@ def handle_buttons(
     # Si no se cumple ninguna condición, devuelve el mapa inicial
     return [fig_inicial, go.Figure(), prcp, wdir, wspd, pres, temp, t_min, t_max, t_avg, rhum, weather_type, dwpt, "Acción no reconocida."]
 
-
+server = app.server  
 ############################################################################################################
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    import os
+    port = int(os.environ.get('PORT', 8050))  # Puerto por defecto si PORT no está definido
+    app.run_server(debug=True, host='0.0.0.0', port=port)

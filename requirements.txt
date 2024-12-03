@@ -10,3 +10,13 @@ joblib
 scikit-learn
 xgboost
 lightgbm
+dash==2.12.1  # Ajusta a la última versión que funcione en tu entorno
+dash-bootstrap-components==1.4.1  # Para los componentes de bootstrap en Dash
+pandas==1.5.3  # Para trabajar con datos tabulares
+requests==2.31.0  # Para realizar peticiones HTTP
+scikit-learn==1.2.2  # Para trabajar con modelos de machine learning
+lightgbm==3.3.5  # Para modelos LightGBM
+joblib==1.3.2  # Para la serialización y paralelización
+plotly==5.15.0  # Para generar gráficos interactivos
+flask==2.3.3  # Flask es necesario como backend para Dash
+gunicorn==20.1.0  # Para ejecutar el servidor en producción
