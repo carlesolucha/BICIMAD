@@ -4,7 +4,6 @@ from dash import html, dcc
 import dash_bootstrap_components as dbc
 from datetime import datetime
 from components import header
-import random
 from utils import generar_mapa
 import plotly.express as px
 

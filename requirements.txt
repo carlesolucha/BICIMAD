@@ -1,4 +1,4 @@
-dash
+dash==2.18.1
 gunicorn
 dash-bootstrap-components
 pandas 
@@ -7,6 +7,6 @@ openpyxl
 pyarrow  
 requests
 joblib
-scikit-learn
+scikit-learn==1.4.2
 xgboost
 lightgbm

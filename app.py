@@ -1,4 +1,3 @@
-from dash import Dash, html
 from dash import Dash, html, dcc
 import dash_bootstrap_components as dbc
 from inicio import homepage  # Importa la página de inicio
