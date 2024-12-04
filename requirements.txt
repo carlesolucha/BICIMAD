@@ -10,3 +10,4 @@ joblib
 scikit-learn==1.4.2
 xgboost
 lightgbm
+freeze

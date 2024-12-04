@@ -318,16 +318,23 @@ def get_total_trips_by_zip_and_hour(dataset, zip_code, hour):
         return 0
 
 
-# 2. Cargar el modelo desde un archivo
+"""# 2. Cargar el modelo desde un archivo
 def load_model():
-    """
-    Carga un modelo desde un archivo local.
-    """
+
     # Cargar el modelo comprimido
     with gzip.open("./models/modelo_cargado_comprimido.pkl.gz", "rb") as compressed_file:
         model = pickle.load(compressed_file)
     #print(f"Modelo cargado desde: {filepath}")
-    return model
+    return model"""
+
+def load_model(model_name):
+    model_path = f'./models/{model_name}.pkl'
+    try:
+        with open(model_path, 'rb') as f:
+            return joblib.load(f)
+    except Exception as e:
+        print(f"Error al cargar el modelo {model_name}: {e}")
+        return None
 
 # 3. Predecir con el modelo cargado
 def predict_with_model(model, new_data):
@@ -524,7 +531,7 @@ def handle_buttons(
         # Generar predicciones simuladas
         #predicciones = {cp: random.randint(3, 50) for cp in df_cp["CP"]}
         predicciones = {}
-        modelo_cargado = load_model()
+        modelo_cargado = load_model("modelo_cargado_comprimido.pkl.gz")
         season=get_season(fecha)
         season_winter=0
         season_fall=0
@@ -636,6 +643,10 @@ def handle_buttons(
             })
             pred_i = predict_with_model(modelo_cargado, new_data)
             predicciones[cp] = math.trunc(pred_i[0])
+
+            del new_data
+            import gc
+            gc.collect()
 
 
         #print(predicciones)
