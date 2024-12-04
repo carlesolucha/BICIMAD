@@ -328,7 +328,7 @@ def load_model():
     return model"""
 
 def load_model(model_name):
-    model_path = f'./models/{model_name}.pkl'
+    model_path = f'./models/{model_name}'
     try:
         with open(model_path, 'rb') as f:
             return joblib.load(f)
